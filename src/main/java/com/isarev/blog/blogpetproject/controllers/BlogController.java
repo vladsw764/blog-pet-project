@@ -20,15 +20,15 @@ public class BlogController {
     public String blogMain(Model model){
         Iterable<Post> posts = postRepository.findAll();
         model.addAttribute("posts", posts);
-        return "blog-main";
+        return "blog/blog-main";
     }
     @GetMapping("/blog/add")
-    public String addBlog(Model model){
-        return "blog-add";
+    public String addBlog(){
+        return "blog/blog-add";
     }
     @PostMapping("/blog/add")
     public String addBlogPost(@RequestParam String title, @RequestParam String anons,
-                              @RequestParam String full_text, Model model){
+                              @RequestParam String full_text){
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
         return "redirect:/blog";
@@ -42,7 +42,7 @@ public class BlogController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post", res);
-        return "blog-details";
+        return "blog/blog-details";
     }
     @GetMapping("/blog/{id}/edit")
     public String editPost(@PathVariable(value = "id") long id, Model model){
@@ -52,11 +52,11 @@ public class BlogController {
         List<Post> posts = new ArrayList<>();
         post.ifPresent(posts::add);
         model.addAttribute("post", posts);
-        return "blog-edit";
+        return "blog/blog-edit";
     }
 
     @PostMapping("/blog/{id}/edit")
-    public String editBlogPost(@PathVariable(value = "id") long id, Model model,
+    public String editBlogPost(@PathVariable(value = "id") long id,
                                @RequestParam String title, @RequestParam String anons, @RequestParam String full_text){
         Post post = postRepository.findById(id).orElseThrow();
         post.setTitle(title);
@@ -67,7 +67,7 @@ public class BlogController {
     }
 
     @PostMapping("/blog/{id}/delete")
-    public String deletePost(@PathVariable(value = "id") long id, Model model){
+    public String deletePost(@PathVariable(value = "id") long id){
         Post post = postRepository.findById(id).orElseThrow();
         postRepository.delete(post);
         return "redirect:/blog";

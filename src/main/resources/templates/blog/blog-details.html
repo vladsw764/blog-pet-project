@@ -13,13 +13,13 @@
 <div th:insert="~{blocks/header :: header}"></div>
 
 <div class="container mt-5">
-  <div th:each="element : ${post}" class="alert alert-info mt-2">
+  <div th:each="element : ${post}" class="alert alert-dark mt-2">
     <h1 th:text="${element.title}"/>
     <h5 th:text="${element.anons}"/>
     <p th:text="${element.full_text}"/>
-    <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-success mb-2">Edit post</a>
+    <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-dark mb-2">Edit post</a>
     <form th:action="'/blog/' + ${element.id} + '/delete'" method="post">
-      <button type="submit" class="btn btn-success">Delete Post</button>
+      <button type="submit" class="btn btn-dark">Delete Post</button>
     </form>
   </div>
 </div>

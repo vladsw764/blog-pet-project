@@ -15,13 +15,13 @@
 <div class="container mt-5 mb-5">
   <h1>Creating blog</h1>
   <form action="/blog/add" method="POST">
-      <input type="text" name="title" placeholder="Enter the title of article" class="form-control">
+      <input type="text" name="title" placeholder="Enter the title of article" class="form-control" required>
     <br>
-      <input type="text" name="anons" placeholder="Enter the anons of article" class="form-control">
+      <input type="text" name="anons" placeholder="Enter the anons of article" class="form-control" required>
     <br>
-      <textarea name="full_text" placeholder="Enter the text of article" class="form-control"></textarea>
+      <textarea name="full_text" placeholder="Enter the text of article" class="form-control" required></textarea>
     <br>
-    <button type="submit" class="btn btn-success">Add article</button>
+    <button type="submit" class="btn btn-dark">Add article</button>
   </form>
 </div>
 

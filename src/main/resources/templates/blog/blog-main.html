@@ -13,10 +13,10 @@
     <div th:insert="~{blocks/header :: header}"></div>
 
     <div class="container mt-5">
-        <div th:each="post : ${posts}" class="alert alert-info mt-2">
+        <div th:each="post : ${posts}" class="alert alert-dark mt-2">
             <h1 th:text="${post.title}"/>
             <h4 th:text="${post.anons}"/>
-            <a th:href="'/blog/' + ${post.id}" class="btn btn-success">More info</a>
+            <a th:href="'/blog/' + ${post.id}" class="btn btn-dark">More info</a>
         </div>
     </div>
 
