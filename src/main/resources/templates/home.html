@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
@@ -9,83 +9,52 @@
 </head>
 <body>
 
-    <header th:insert="~{blocks/header :: header}"></header>
+<header th:insert="~{blocks/header :: header}"></header>
 
-    <main>
+<main>
 
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light" th:text="'Hello dear friend!'"/>
-                    <p class="lead text-muted">This is a main page. <br/>Now you can read all posts in the "Blog" section and create new posts in the "Create new blog" section. <br/> You're welcome✌🏻</p>
-                    <p>
-                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                    </p>
-                </div>
-            </div>
-        </section>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-<!--                                <image href="President.jpeg" height="225" width="100%"/>-->
-                                <rect width="100%" height="100%" fill="#55595c"></rect>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="py-3 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light" th:text="'Hello dear friend!'"/>
+                <p class="lead text-muted">This is a main page. <br/>Now you can also read all posts in the "Blog" section and create new posts in the "Create new blog" section. <br/> You're welcome✌🏻</p>
+                    <a th:href="@{/blog/add}" class="btn btn-primary my-2">Create New Blog</a>
             </div>
         </div>
-    </main>
+    </section>
 
-    <div th:insert="~{blocks/footer :: footer}"></div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" th:each="post : ${posts}">
+                    <div class="card shadow-sm">
+<!--                        <svg class="bd-placeholder-img card-img-top" width="100%" height="150" xmlns="http://www.w3.org/2000/svg"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">-->
+<!--                            <title>Placeholder</title>-->
+<!--&lt;!&ndash;                                <image href="President.jpeg" height="225" width="100%"/>&ndash;&gt;-->
+<!--                            <rect width="100%" height="100%" fill="bisque"></rect>-->
+<!--                            <text x="20%" y="50%" fill="black" dy=".3em">Picture insertion will be implemented</text>-->
+<!--                        </svg>-->
+                        <div class="card-body">
+                            <h3 th:text="${post.title}"/>
+                            <h6 th:text="${post.anons}"/>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a th:href="'/blog/' + ${post.id}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a th:href="'blog/' + ${post.id} + '/edit'" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:insert="~{blocks/footer :: footer}"></div>
 
 </body>
 </html>

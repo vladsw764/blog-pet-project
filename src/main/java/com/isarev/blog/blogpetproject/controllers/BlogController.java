@@ -12,9 +12,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/")
 public class BlogController {
     @Autowired
     private PostRepository postRepository;
+
+    @GetMapping("/")
+    public String home(Model model){
+        Iterable<Post> posts = postRepository.findAll();
+        model.addAttribute("posts", posts);
+        return "home";
+    }
 
     @GetMapping("/blog")
     public String blogMain(Model model){
