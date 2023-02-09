@@ -2,9 +2,9 @@ server:
   port: 8888
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/blog_db
-    username: postgres
-    password: motor350
+    url: [Your url connection to database]
+    username: [Your username]
+    password: [Your password]
   jpa:
     hibernate:
       ddl-auto: update
