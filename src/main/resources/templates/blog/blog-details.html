@@ -18,8 +18,8 @@
     <h5 th:text="${element.anons}"/>
     <p th:text="${element.full_text}"/>
     <a th:href="'/blog/' + ${element.id} + '/edit'" class="btn btn-dark mb-2">Edit post</a>
-    <form th:action="'/blog/' + ${element.id} + '/delete'" method="post">
-      <button type="submit" class="btn btn-dark">Delete Post</button>
+    <form th:action="'/blog/' + ${element.id} + '/delete'" th:method="DELETE">
+      <button type="submit" class="btn btn-dark">DELETE</button>
     </form>
   </div>
 </div>
@@ -28,3 +28,15 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

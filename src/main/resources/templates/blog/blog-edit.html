@@ -14,7 +14,7 @@
 
 <div class="container mt-5 mb-5">
   <h1>Editing blog</h1>
-  <form method="POST">
+  <form th:method="PATCH">
     <div th:each="element : ${post}">
       <input type="text" th:value="${element.title}" name="title" placeholder="Enter the title of article" class="form-control">
       <br>
