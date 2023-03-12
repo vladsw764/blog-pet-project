@@ -31,8 +31,8 @@ public class ShopController {
 
     @PostMapping("/add_products")
     public String productAdd(@RequestParam String product_name, @RequestParam String supplier,
-                             @RequestParam BigDecimal unit_price, @RequestParam int quantity_per_unit){
-        Product product = new Product(product_name, supplier, quantity_per_unit, unit_price);
+                             @RequestParam BigDecimal unit_price, @RequestParam String description){
+        Product product = new Product(product_name, supplier, description, unit_price);
         productRepository.save(product);
         return "redirect:/shop";
     }
@@ -49,7 +49,7 @@ public class ShopController {
         return "shop/product-details";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/delete")
     public String productRemove(@PathVariable(name = "id") long id){
         Product product = productRepository.findById(id).orElseThrow();
         productRepository.delete(product);
