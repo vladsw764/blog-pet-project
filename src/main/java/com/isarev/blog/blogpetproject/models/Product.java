@@ -16,13 +16,13 @@ public class Product {
     private long product_id;
     private String product_name;
     private String supplier;
-    private int quantity_per_unit;
+    private String description;
     private BigDecimal unit_price;
 
-    public Product(String product_name, String supplier, int quantity_per_unit, BigDecimal unit_price) {
+    public Product(String product_name, String supplier, String description, BigDecimal unit_price) {
         this.product_name = product_name;
         this.supplier = supplier;
-        this.quantity_per_unit = quantity_per_unit;
+        this.description = description;
         this.unit_price = unit_price;
     }
 }
